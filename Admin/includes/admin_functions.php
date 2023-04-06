@@ -5,7 +5,7 @@ include 'admin_database.php';
 // Function to delete category form categories.php //
 function deleteCategory(){
   global $conn;
-
+  
   if (isset($_GET['delete'])) {
     $get_cat_id = $_GET['delete'];
   

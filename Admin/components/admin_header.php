@@ -5,8 +5,8 @@
   <?php
   ob_start();
   include '../includes/config.php';
-  include '../includes/database.php';
-  include '../includes/functions.php';
+  include 'includes/admin_database.php';
+  include 'includes/admin_functions.php';
   ?>
 
   <meta charset="UTF-8">
