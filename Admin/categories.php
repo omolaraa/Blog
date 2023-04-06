@@ -15,18 +15,23 @@ if (isset($_POST['submit'])){
         $query = "INSERT INTO categories (category_title) VALUES ('$cat_title')";
         $create_category_query = mysqli_query($conn, $query);
 
-        if(!$create_category_query) {
-            die('Query failed' .mysqli_error($conn));
-        }
+        if($create_category_query){
+            //Success
+            header('Location: categories.php');
+          }else{
+            //Error
+            echo 'Error: ' . mysqli_error($conn);
+          }
     }
 
-}
+};
 
 if (isset($_GET['delete'])){
     $get_cat_id = $_GET['delete'];
 
     $query = "DELETE FROM categories WHERE category_id = {$get_cat_id} ";
     $delete_query = mysqli_query($conn, $query);
+    header('Location: categories.php');
 
 
 }
@@ -44,8 +49,8 @@ if (isset($_GET['delete'])){
     <div class="col">
 
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-            <label for="cat_title">Add Catergory</label>  
-            <div class="form-group">
+            <div class="form-group mb-3">
+            <label for="cat_title" class="form-label">Add Catergory</label>  
                 <input type="text" name="cat_title" class="form-control <?php echo $titleErr? 'is-invalid' : null; ?>">
                 <div class="invalid-feedback">
                <?php echo $titleErr; ?>

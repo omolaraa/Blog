@@ -1,19 +1,11 @@
 <?php
 
-// $sql = 'SELECT * FROM categories';
-// $select_categories = mysqli_query($conn, $sql);
-// $category = mysqli_fetch_assoc($select_categories);
-
-// while ($category){
-//     $cat_title = $category['category_title'];
-// }
-
 $sql = 'SELECT * FROM categories';
 $select_categories = mysqli_query($conn, $sql);
 $categories = mysqli_fetch_all($select_categories, MYSQLI_ASSOC);
 ?>
 
-<div class="mb-5 mt-3">
+<div class="mb-5 mt-3"> 
     <h4>Blog Search</h4>
     <form action="search.php" method="post">
         <div class="input-group">
@@ -39,3 +31,5 @@ $categories = mysqli_fetch_all($select_categories, MYSQLI_ASSOC);
         </div>
     </div>
 </div>
+<?php echo "<td><a href='categories.php?delete={$cat_id}'>Delete</a></td>"; ?>
+<td><?php echo "<a href='categories.php?delete={$cat_id}'>Delete</a>"; ?></td>
