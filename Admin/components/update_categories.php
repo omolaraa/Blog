@@ -1,24 +1,14 @@
 <?php
-        if (isset($_POST['update_category'])) {
-            $updated_cat_title = filter_input(INPUT_POST, 'updated_cat_title', FILTER_SANITIZE_SPECIAL_CHARS);
+if (isset($_POST['update_category'])) {
+    $updated_cat_title = filter_input(INPUT_POST, 'updated_cat_title', FILTER_SANITIZE_SPECIAL_CHARS);
 
-            if ($updated_cat_title == "" || empty($updated_cat_title)) {
-                $updateErr = 'Updated title is required';
-            } else {
-                $query = "UPDATE categories SET category_title = '{$updated_cat_title}' WHERE category_id = {$get_cat_id}";
-                $update_query = mysqli_query($conn, $query);
-
-                if ($update_query) {
-                    //Success
-                    header('Location: categories.php');
-                } else {
-                    //Error
-                    echo 'Error: ' . mysqli_error($conn);
-                }
-            }
-        }
-
-        ?>
+    if ($updated_cat_title == "" || empty($updated_cat_title)) {
+        $updateErr = 'Updated title is required';
+    } else {
+        updateCategory($get_cat_id, $updated_cat_title);
+    }
+}
+?>
 
 <form action="" method="post" class="mb-3">
     <div class="form-group mb-3">
@@ -38,9 +28,8 @@
                                     echo $cat_title;
                                 } ?>" type="text" name="updated_cat_title" class="form-control <?php echo $updateErr ? 'is-invalid' : null; ?>">
                 <div class="invalid-feedback">
-                    <?php echo $updateErr; ?>
+                    <?php echo $updateErr;; ?>
                 </div>
-
         <?php }
         } ?>
 
