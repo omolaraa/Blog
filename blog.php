@@ -17,7 +17,7 @@ $posts = mysqli_fetch_all($select_posts, MYSQLI_ASSOC);
 
             <div class="col-md-8 p-3">
                 <?php foreach ($posts as $post) : ?>
-                    <h1 class="page-header">
+                    <h1 class="page-header"> 
                         Page Heading
                         <small>Secondary Text</small>
                     </h1>

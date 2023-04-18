@@ -1,3 +1,6 @@
+</main>
+  </div>
+</div>
 <!-- <footer class="p-5 bg-dark text-white text-center position-relative">
       <div class="container">
         <p class="lead">Copyright &copy; 2021 Frontend Bootcamp</p>

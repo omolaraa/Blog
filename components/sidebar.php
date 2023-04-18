@@ -31,5 +31,3 @@ $categories = mysqli_fetch_all($select_categories, MYSQLI_ASSOC);
         </div>
     </div>
 </div>
-<?php echo "<td><a href='categories.php?delete={$cat_id}'>Delete</a></td>"; ?>
-<td><?php echo "<a href='categories.php?delete={$cat_id}'>Delete</a>"; ?></td>

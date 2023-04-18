@@ -12,13 +12,13 @@ function displayCategories()
   $categories = mysqli_fetch_all($select_categories, MYSQLI_ASSOC);
 
   foreach ($categories as $category) :
-    echo "<tr>";
+    echo "<tr>"; 
     echo "<td> {$category['category_id']} </td>";
     echo "<td> {$category['category_title']} </td>";
     echo "<td><a href='categories.php?delete={$category['category_id']}'>Delete</a></td>";
     echo "<td><a href='categories.php?edit={$category['category_id']}'>Edit</a></td>";
     echo "<tr>";
-
+ 
   endforeach;
 }
 
@@ -88,4 +88,76 @@ function updateCategory($get_cat_id, $updated_cat_title){
             echo 'Error: ' . mysqli_error($conn);
         }
       }
+?>
+
+<?php
+
+function validateQuery($result){
+  global $conn;
+  if (!$result){
+         
+    die ('QUERY FAILED.' . mysqli_error($conn));
+}
+}
+
+///////////////////////////////////////// POSTS FUNCTIONS ///////////////////////////////////////////////////////////
+// Function to link category_id to post_category_id and get the category title 
+//-- Relational Database; view_all_posts.php //
+function getCatTitle($post_category_id){
+  global $conn;
+   // Search for the category_id value from categories that matches the post_category_id value in the posts table
+   $query = "SELECT * FROM categories WHERE category_id = {$post_category_id}";
+   $select_categories_id = mysqli_query($conn, $query);
+   // When the category_id with a match has been found, get the name of the category linked to it's id.
+   while ($row = mysqli_fetch_assoc($select_categories_id)) {
+     $cat_title = $row['category_title'];
+     
+     // Display the title of the category instead of the category_id
+
+     echo "<td> $cat_title </td>";
+   }
+}
+
+// Function to delete post; view_all_posts.php
+function deletePost(){
+  global $conn;
+  if (isset($_GET['delete'])) {
+    $get_post_id = $_GET['delete'];
+  
+    $query = "DELETE FROM posts WHERE post_id = {$get_post_id} ";
+    $delete_query = mysqli_query($conn, $query);
+  
+  
+    if ($delete_query) {
+      //Success
+      header('Location: posts.php');
+    } else {
+      //Error
+      echo 'Error: ' . mysqli_error($conn);
+    }
+  }
+  
+}
+
+// Function to select a category from options of categories
+//display options of categories ; edit_posts.php
+function selectCategory(){
+  global $conn;
+  $query = "SELECT * FROM categories";
+  $select_categories = mysqli_query($conn, $query);
+
+  validateQuery($select_categories);
+
+  while ($row = mysqli_fetch_assoc($select_categories)) {
+      $cat_id = $row['category_id'];
+      $cat_title = $row['category_title'];
+
+      echo "<option value='{$cat_id}'>{$cat_title}</option>";
+  }
+
+}
+
+
+
+
 ?>

@@ -1,4 +1,6 @@
-
+<div class="container-fluid">
+  <div class="row">
+   
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
       <ul class="nav flex-column">
@@ -13,7 +15,7 @@
             <i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i>
           </a>
           <ul class="collapse" id="posts-dropdown">
-            <div><a class="nav-link" href="#">View All Posts</a></div>
+            <div><a class="nav-link" href="posts.php">View All Posts</a></div>
             <div><a class="nav-link" href="#">Add Posts</a></div>
           </ul>
         </li>
@@ -34,8 +36,8 @@
             <i class="fa fa-fw fa-dashboard"></i> Users <i class="fa fa-fw fa-caret-down"></i>
           </a>
           <ul class="collapse" id="users-dropdown">
-            <div><a class="nav-link" href="#">View All Posts</a></div>
-            <div><a class="nav-link" href="#">Add Posts</a></div>
+            <div><a class="nav-link" href="components/view_all_posts.php">View All Posts</a></div>
+            <div><a class="nav-link" href="posts.php?source=add_post">Add Posts</a></div>
           </ul>
         </li>
 

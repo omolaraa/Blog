@@ -36,7 +36,7 @@
     <div class="navbar-nav col-md-8 col-lg-9 col-12 d-flex flex-row justify-content-end px-5 px-md-0">
 
       <div class="nav-item">
-        <a class="nav-link px-3" href="#">Home Site</a>
+        <a class="nav-link px-3" href="../blog.php">Home Site</a>
       </div>
 
       <div class="nav-item dropdown">

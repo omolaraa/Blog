@@ -4,14 +4,15 @@ include 'components/admin_header.php';
 
 deleteCategory();
 ?>
+ <?php include 'components/admin_nav.php'; ?>
 
 <div class="container-fluid">
     <div class="row">
 
-        <?php include 'components/admin_nav.php'; ?>
+       
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class=" align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Dashboard</h1>
+                <h1 class="h2">Categories</h1>
             </div>
             <div class="row">
                 <div class="col">
@@ -33,7 +34,7 @@ deleteCategory();
                         $get_cat_id = $_GET['edit'];
 
                         include 'components/update_categories.php';
-                    } ?>
+                    } ?> 
 
                 </div>
                 <div class="col">
@@ -49,13 +50,11 @@ deleteCategory();
                             displayCategories();
                             ?>
                         </tbody>
-                    </table>
+                    </table> 
                 </div>
             </div>
 
-        </main>
-    </div>
-</div>
+       
 
 
 <?php include 'components/admin_footer.php'; ?>
