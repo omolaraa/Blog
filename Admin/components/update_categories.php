@@ -4,7 +4,7 @@ if (isset($_POST['update_category'])) {
 
     if ($updated_cat_title == "" || empty($updated_cat_title)) {
         $updateErr = 'Updated title is required';
-    } else {
+    } else { 
         updateCategory($get_cat_id, $updated_cat_title);
     }
 }

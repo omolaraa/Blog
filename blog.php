@@ -25,7 +25,7 @@ $posts = mysqli_fetch_all($select_posts, MYSQLI_ASSOC);
                     <p class="lead">by <a href="index.php"><?php echo $post['post_author']; ?></a></p>
                     <p><span class="glyphicon glyphicon-time"></span>Posted on <?php echo $post['post_date']; ?> at 10:00 PM</p>
                     <hr>
-                    <img src="http://placehold.it/600x300" alt="img" class="img-responsive">
+                    <img src="images/<?php echo $post['post_image']; ?>" alt="img" class='img-responsive' width='700' height='400'>
                     <hr>
                     <p><?php echo $post['post_content']; ?></p>
                     <a href="#" class="btn btn-primary mb-5">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>

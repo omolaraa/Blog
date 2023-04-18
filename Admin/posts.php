@@ -22,6 +22,7 @@ include 'components/admin_nav.php';
            }
 
            switch($source) {
+            
             case 'add_post';
             include "components/add_post.php";
             break;
