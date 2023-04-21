@@ -1,3 +1,4 @@
+
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
@@ -19,7 +20,7 @@
     $posts = mysqli_fetch_all($select_posts, MYSQLI_ASSOC);
     foreach ($posts as $post) {
       $post_id = $post['post_id'];
-      $post_author = $post['post_author'];
+      $post_author = $post['post_author']; 
       $post_title = $post['post_title'];
       $post_category_id = $post['post_category_id'];
       $post_status = $post['post_status'];

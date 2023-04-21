@@ -118,7 +118,7 @@ function getCatTitle($post_category_id){
    }
 }
 
-// Function to delete post; view_all_posts.php
+// Function to delete post; view_all_posts.php 
 function deletePost(){
   global $conn;
   if (isset($_GET['delete'])) {
@@ -137,7 +137,7 @@ function deletePost(){
     }
   }
   
-}
+} 
 
 // Function to select a category from options of categories
 //display options of categories ; edit_posts.php
@@ -156,8 +156,68 @@ function selectCategory(){
   }
 
 }
+///////////////////////////////////////// COMMENTS FUNCTIONS ///////////////////////////////////////////////////////////
 
+// Function to delete post; view_all_posts.php 
+function deleteComment(){
+  global $conn;
+  if (isset($_GET['delete'])) {
+    $get_comment_id = $_GET['delete'];
+  
+    $query = "DELETE FROM comments WHERE comment_id = {$get_comment_id} ";
+    $delete_query = mysqli_query($conn, $query);
+  
+  
+    if ($delete_query) {
+      //Success
+      header('Location: comments.php');
+    } else {
+      //Error
+      echo 'Error: ' . mysqli_error($conn);
+    }
+  }
+  
+} 
 
+function approveComment(){
+  global $conn;
+  if (isset($_GET['approve'])) {
+    $get_comment_id = $_GET['approve'];
+  
+    $query = "UPDATE comments SET comment_status = 'approved' WHERE comment_id = $get_comment_id";
+    $approve_comment_query = mysqli_query($conn, $query);
+  
+  
+    if ($approve_comment_query) {
+      //Success
+      header('Location: comments.php');
+    } else {
+      //Error
+      echo 'Error: ' . mysqli_error($conn);
+    }
+  }
+  
+} 
+
+function unapproveComment(){
+  global $conn;
+  if (isset($_GET['unapprove'])) {
+    $get_comment_id = $_GET['unapprove'];
+  
+    $query = "UPDATE comments SET comment_status = 'unapproved ' WHERE comment_id = $get_comment_id";
+    $unapprove_comment_query = mysqli_query($conn, $query);
+  
+  
+    if ($unapprove_comment_query) {
+      //Success
+      header('Location: comments.php');
+    } else {
+      //Error
+      echo 'Error: ' . mysqli_error($conn);
+    }
+  }
+  
+} 
 
 
 ?>

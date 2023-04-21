@@ -24,7 +24,7 @@
 
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
       <div class="container">
-        <a href="#" class="navbar-brand">Dev Bootcamp</a>
+        <a href="index.php" class="navbar-brand">Dev Bootcamp</a>
 
         <button
           class="navbar-toggler"

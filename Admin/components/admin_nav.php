@@ -5,11 +5,11 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="nav-link active" aria-current="page" href="index.php">
               Dashboard
             </a>
           </li>
-
+ 
           <li class="nav-item">
             <a class="nav-link" href="#" data-bs-target="#posts-dropdown" data-bs-toggle="collapse">
               <i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i>
@@ -26,7 +26,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="comments.php">
               <i class="fa fa-fw fa-file"></i> Comments
             </a>
           </li>

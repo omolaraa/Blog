@@ -5,9 +5,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 p-3">
-                
+
                 <?php
-                $sql = 'SELECT * FROM posts';
+
+               if(isset($_GET['category'])){
+                $get_category_id = $_GET['category'];
+               }
+
+                $sql = "SELECT * FROM posts WHERE post_category_id = $get_category_id";
                 $select_posts = mysqli_query($conn, $sql);
                 $posts = mysqli_fetch_all($select_posts, MYSQLI_ASSOC);
 
@@ -26,7 +31,7 @@
                 ?>
 
                     <h1 class="page-header">
-                        Page Heading 
+                        Page Heading
                         <small>Secondary Text</small>
                     </h1>
                     <h2><a href="post.php?p_id=<?php echo $post_id ?>" class="nav-link"> <?php echo $post_title; ?> </a></h2>
